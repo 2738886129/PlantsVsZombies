@@ -1,0 +1,61 @@
+# Project: 植物大战僵尸
+# Makefile created by Red Panda C++ 1.0.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 植物大战僵尸_private.res
+OBJ      = main.o base.o gamewindow.o peashooter.o peas.o zombies.o game.o draw.o grass.o river.o $(RES)
+LINKOBJ  = main.o base.o gamewindow.o peashooter.o peas.o zombies.o game.o draw.o grass.o river.o $(RES)
+CLEANOBJ  =  main.o base.o gamewindow.o peashooter.o peas.o zombies.o game.o draw.o grass.o river.o $(RES)
+LIBS     =  -mwindows -lgraphics -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32 -lwinmm -lgdiplus
+INCS     =  
+CXXINCS  =  
+BIN      = 植物大战僵尸.exe
+CXXFLAGS = $(CXXINCS)  -Wall -Wextra -g3 -pipe -D__DEBUG__
+CFLAGS   = $(INCS)  -Wall -Wextra -g3 -pipe -D__DEBUG__
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) $(BIN) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/main.cpp" -o main.o $(CXXFLAGS) 
+
+base.o: base.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/base.cpp" -o base.o $(CXXFLAGS)  -finput-charset=gbk -fexec-charset=gbk
+
+gamewindow.o: gamewindow.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/gamewindow.cpp" -o gamewindow.o $(CXXFLAGS) 
+
+peashooter.o: peashooter.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/peashooter.cpp" -o peashooter.o $(CXXFLAGS) 
+
+peas.o: peas.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/peas.cpp" -o peas.o $(CXXFLAGS) 
+
+zombies.o: zombies.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/zombies.cpp" -o zombies.o $(CXXFLAGS) 
+
+game.o: game.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/game.cpp" -o game.o $(CXXFLAGS) 
+
+draw.o: draw.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/draw.cpp" -o draw.o $(CXXFLAGS)  -finput-charset=gbk -fexec-charset=gbk
+
+grass.o: grass.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/grass.cpp" -o grass.o $(CXXFLAGS) 
+
+river.o: river.cpp
+	$(CPP) -c "E:/program/c++/dev c++/植物大战僵尸/river.cpp" -o river.o $(CXXFLAGS) 
+
+植物大战僵尸_private.res: 植物大战僵尸_private.rc 
+	$(WINDRES) -i 植物大战僵尸_private.rc --input-format=rc -o 植物大战僵尸_private.res -O coff 
+

@@ -5,9 +5,6 @@
 
 void base::DrawGameGrid()
 {
-//	这里不可用出错！！！
-//	memset(Grid,0,sizeof(Grid));
-	
 	for(int i=0;i<base::GridHeight;i++){
 		for(int j=0;j<base::GridWidth;j++){
 			Draw::ASquareBox(GtoA(GridPosition(j,i)),base::BaseGridWidth);

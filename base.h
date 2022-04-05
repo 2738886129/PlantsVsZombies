@@ -37,6 +37,14 @@ class base {
 		static int GetUnitGridW(){
 			return BaseGridWidth;
 		}
+		static int GetGridH()
+		{
+			return GridHeight;
+		}
+		static int GetGridW()
+		{
+			return GridWidth;
+		}
 		static void SetGrid(int h,int w,int value)
 		{
 			Grid[h][w]=value;
@@ -59,5 +67,6 @@ class base {
 		static const int GameWindowHeight = GridHeight * BaseGridHeight;
 		static const int GameWindowWidth = GridWidth * BaseGridWidth;
 };
+int base::Grid[GridHeight][GridWidth]={0};
 
 #endif
